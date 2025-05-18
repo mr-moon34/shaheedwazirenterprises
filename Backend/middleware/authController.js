@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 import { JWT_SECRET } from '../config.js';
+import Customer from '../models/Customer.js';
 
 const generateToken = (id) => {
     return jwt.sign({ id }, JWT_SECRET, { expiresIn: '30d' });
@@ -73,15 +74,26 @@ export const createAdmin = async (req, res) => {
 
   export const Profile= async (req, res) => {
     const {id}=req.params;
-
-    // console.log(req.params)
-
-
    
     try {
       const user = await User.findById(id)
       if (!user) {
         return res.status(404).json({ error: "User not found" });
+      }
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(500).json({ error: "Error fetching user data" });
+    }
+  }
+
+
+   export const CustmerProfile= async (req, res) => {
+    const {id}=req.params;
+   
+    try {
+      const user = await Customer.findById(id)
+      if (!user) {
+        return res.status(404).json({ error: "Customer not found" });
       }
       res.status(200).json(user);
     } catch (error) {

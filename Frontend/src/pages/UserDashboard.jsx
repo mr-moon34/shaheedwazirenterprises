@@ -120,7 +120,7 @@ const UserDashboard = () => {
   };
 
   const handleEditClick = (userId) => {
-    navigate(`/EditUser/${userId}`);
+    navigate(`/EditCustomer/${userId}`);
   };
 
   const handleItemsPerPageChange = (e) => {

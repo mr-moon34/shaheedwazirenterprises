@@ -19,6 +19,7 @@ import Navbar from './pages/components/Navbar';
 import EditUserPage from './pages/Admin/EditUserPage';
 import SidebarWithNavbar from './pages/components/Sidebar';
 import CottonProductsPage from './pages/components/ProductPage';
+import EditCustomer from './pages/Admin/EditCustomer.jsx';
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
       <Route path="/UserManager" element={<SidebarWithNavbar><UserManager /></SidebarWithNavbar>} />
       <Route path="/AddUser" element={<SidebarWithNavbar><AddUserForm /></SidebarWithNavbar>} />
             <Route path="/EditUser/:id" element={<SidebarWithNavbar><EditUserPage /></SidebarWithNavbar>} />
+            <Route path="/EditCustomer/:id" element={<SidebarWithNavbar><EditCustomer /></SidebarWithNavbar>} />
+
             <Route path="/TransactionTrash" element={<SidebarWithNavbar><TransactionTrash /></SidebarWithNavbar>} />
         <Route path="/Userdashboard" element={<SidebarWithNavbar><Dashboard /></SidebarWithNavbar>} />
         <Route path="/dashboard" element={<SidebarWithNavbar><UserDashboard /></SidebarWithNavbar>} />

@@ -490,7 +490,7 @@ const SidebarWithNavbar = ({children}) => {
                             // href={item.link}
                             onClick={(e) => {
                               if (item.submenu) {
-                                // e.preventDefault();
+                                e.preventDefault();
                                 toggleDropdown(index);
                               }
                               else{
@@ -523,10 +523,13 @@ const SidebarWithNavbar = ({children}) => {
                                 <li key={subIndex}>
                                   <a
                                     // href={subItem.link}
-                                    onclick={()=>{
+                                   
+
+                                        onClick={(e) => {
+                            
                                     navigate(`/${subItem.link}`)
 
-
+                              
                                     }}
 
                                     className="block p-2 rounded-lg hover:bg-blue-200 transition-colors text-sm"

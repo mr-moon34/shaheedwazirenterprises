@@ -91,3 +91,87 @@ export const deleteUserController = async (req, res) => {
       res.status(500).json({ message: 'Server error' });
     }
   };
+
+
+
+
+
+export const updateCustomer = async (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        // Validate the ID
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ 
+                success: false, 
+                message: 'Invalid customer ID' 
+            });
+        }
+
+        // Extract updatable fields from request body
+        const { name, email, phone, address, reference } = req.body;
+        
+        // Find the customer by ID
+        const customer = await Customer.findById(id);
+        
+        if (!customer) {
+            return res.status(404).json({ 
+                success: false, 
+                message: 'Customer not found' 
+            });
+        }
+
+        // Prepare update object
+        const updateData = {};
+        if (name !== undefined) updateData.name = name;
+        if (email !== undefined) updateData.email = email;
+        if (phone !== undefined) updateData.phone = phone;
+        if (address !== undefined) updateData.address = address;
+        if (reference !== undefined) updateData.reference = reference;
+        // if (balance !== undefined) updateData.balance = parseFloat(balance) || 0;
+
+        // Update the customer
+        const updatedCustomer = await Customer.findByIdAndUpdate(
+            id,
+            updateData,
+            { 
+                new: true, // Return the updated document
+                runValidators: true // Run model validators on update
+            }
+        );
+
+        res.status(200).json({
+            success: true,
+            message: 'Customer updated successfully',
+            customer: updatedCustomer
+        });
+
+    } catch (error) {
+        console.error('Error updating customer:', error);
+        
+        // Handle duplicate key error (unique fields)
+        if (error.code === 11000) {
+            const field = Object.keys(error.keyPattern)[0];
+            return res.status(400).json({ 
+                success: false, 
+                message: `${field} already exists` 
+            });
+        }
+
+        // Handle validation errors
+        if (error.name === 'ValidationError') {
+            const messages = Object.values(error.errors).map(val => val.message);
+            return res.status(400).json({ 
+                success: false, 
+                message: 'Validation error',
+                errors: messages 
+            });
+        }
+
+        res.status(500).json({ 
+            success: false, 
+            message: 'Internal server error',
+            error: error.message 
+        });
+    }
+};
