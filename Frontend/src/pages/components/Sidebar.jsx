@@ -50,15 +50,11 @@ const SidebarWithNavbar = ({children}) => {
       icon: <FiHome className="text-lg" />,
       link: 'dashboard'
     },
-    // {
-    //   name: 'Customers',
-    //   icon: <FiHome className="text-lg" />,
-    //   link: 'CustomerManagement'
-    // },
+    
     {
       name: 'Customer Managment',
       icon: <FiUsers className="text-lg" />,
-      link: '#',
+      // link: '#',
       submenu: [
         { name: 'All Customer', link: 'CustomerManagement' },
 
@@ -86,7 +82,7 @@ const SidebarWithNavbar = ({children}) => {
     {
       name: 'Users',
       icon: <FiSettings className="text-lg" />,
-      link: '#',
+      // link: '#',
       submenu: [
         { name: 'All Users', link: 'Userdashboard' },
 
@@ -494,7 +490,7 @@ const SidebarWithNavbar = ({children}) => {
                             // href={item.link}
                             onClick={(e) => {
                               if (item.submenu) {
-                                e.preventDefault();
+                                // e.preventDefault();
                                 toggleDropdown(index);
                               }
                               else{
@@ -526,7 +522,13 @@ const SidebarWithNavbar = ({children}) => {
                               {item.submenu.map((subItem, subIndex) => (
                                 <li key={subIndex}>
                                   <a
-                                    href={subItem.link}
+                                    // href={subItem.link}
+                                    onclick={()=>{
+                                    navigate(`/${subItem.link}`)
+
+
+                                    }}
+
                                     className="block p-2 rounded-lg hover:bg-blue-200 transition-colors text-sm"
                                   >
                                     {subItem.name}

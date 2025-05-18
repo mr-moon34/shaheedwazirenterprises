@@ -74,7 +74,7 @@ const CottonProductsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Premium Cotton & Wool Products
+            Shaheed Wazir Enterprises
           </motion.h1>
           <motion.p 
             className="text-xl text-amber-100 max-w-2xl"
@@ -82,7 +82,7 @@ const CottonProductsPage = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Quality fibers for textile manufacturers worldwide
+            We deal all kind of yarn and cotton.
           </motion.p>
         </div>
       </div>

@@ -93,7 +93,7 @@ const EditUserPage = () => {
               Edit User
             </motion.h2>
             <motion.button
-              onClick={() => navigate('/users')}
+              onClick={() => navigate('/Userdashboard')}
               className="text-gray-500 hover:text-gray-700 transition-colors"
             //   whileHover={{ scale: 1.05 }}
             //   whileTap={{ scale: 0.95 }}
@@ -190,7 +190,7 @@ const EditUserPage = () => {
             >
               <button
                 type="button"
-                onClick={() => navigate('/users')}
+                onClick={() => navigate('/Userdashboard')}
                 className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition"
                 // whileHover={{ scale: 1.02 }}
                 // whileTap={{ scale: 0.98 }}
