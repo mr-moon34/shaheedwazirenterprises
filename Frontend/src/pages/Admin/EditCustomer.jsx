@@ -22,19 +22,20 @@ const EditCustomer = () => {
   useEffect(() => {
     const fetchCustomer = async () => {
       try {
-        const response = await axios.get(`https://shaheed-wazir-enterprises.onrender.com/api/customers/${id}`);
+        const response = await axios.get(`https://shaheed-wazir-enterprises.onrender.com/api/customers/getcustomer/${id}`);
+        console.log(response)
         setCustomer({
-          name: response.data.name,
-          email: response.data.email,
-          phone: response.data.phone,
-          address: response.data.address,
-          reference: response.data.reference,
+          name: response.data.user.name,
+          email: response.data.user.email,
+          phone: response.data.user.phone,
+          address: response.data.user.address,
+          reference: response.data.user.reference,
         //   balance: response.data.balance
         });
       } catch (error) {
         toast.error('Failed to fetch customer data');
         console.error('Error fetching customer:', error);
-        navigate('/customers');
+        navigate('/CustomerManagement');
       } finally {
         setIsLoading(false);
       }
@@ -99,7 +100,7 @@ const EditCustomer = () => {
               Edit Customer
             </motion.h2>
             <motion.button
-              onClick={() => navigate('/customers')}
+              onClick={() => navigate('/CustomerManagement')}
               className="text-gray-500 hover:text-gray-700 transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
