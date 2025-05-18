@@ -113,12 +113,12 @@ export const updateCustomer = async (req, res) => {
 
         // Extract updatable fields from request body
         const { name, email, phone, address, reference } = req.body;
-        console.log(req.body)
+        // console.log(req.body)
         
         // Find the customer by ID
         const customer = await Customer.findById(id);
         
-        console.log(customer)
+        // console.log(customer)
         
         if (!customer) {
             return res.status(404).json({ 
