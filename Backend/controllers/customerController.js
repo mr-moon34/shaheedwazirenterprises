@@ -1,4 +1,5 @@
 import Customer from '../models/Customer.js';
+import mongoose from 'mongoose';
 
 // export const addCustomer = async (req, res) => {
 //     const customer = await Customer.create(req.body);
@@ -99,6 +100,8 @@ export const deleteUserController = async (req, res) => {
 export const updateCustomer = async (req, res) => {
     try {
         const { id } = req.params;
+
+
         
         // Validate the ID
         if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -110,9 +113,12 @@ export const updateCustomer = async (req, res) => {
 
         // Extract updatable fields from request body
         const { name, email, phone, address, reference } = req.body;
+        console.log(req.body)
         
         // Find the customer by ID
         const customer = await Customer.findById(id);
+        
+        console.log(customer)
         
         if (!customer) {
             return res.status(404).json({ 
@@ -123,22 +129,20 @@ export const updateCustomer = async (req, res) => {
 
         // Prepare update object
         const updateData = {};
-        if (name !== undefined) updateData.name = name;
-        if (email !== undefined) updateData.email = email;
-        if (phone !== undefined) updateData.phone = phone;
-        if (address !== undefined) updateData.address = address;
-        if (reference !== undefined) updateData.reference = reference;
+        if (name) updateData.name = name;
+        if (email) updateData.email = email;
+        if (phone) updateData.phone = phone;
+        if (address) updateData.address = address;
+        if (reference) updateData.reference = reference;
         // if (balance !== undefined) updateData.balance = parseFloat(balance) || 0;
 
         // Update the customer
         const updatedCustomer = await Customer.findByIdAndUpdate(
             id,
             updateData,
-            { 
-                new: true, // Return the updated document
-                runValidators: true // Run model validators on update
-            }
+            
         );
+        
 
         res.status(200).json({
             success: true,

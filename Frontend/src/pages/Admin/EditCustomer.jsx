@@ -57,7 +57,8 @@ const EditCustomer = () => {
     setIsUpdating(true);
     
     try {
-      await axios.put(`https://shaheed-wazir-enterprises.onrender.com/api/customers/updateCust${id}`, customer);
+      const res=await axios.put(`https://shaheed-wazir-enterprises.onrender.com/api/customers/updateCust/${id}`, customer);
+    //   console.log(res)
       toast.success('Customer updated successfully!');
       navigate('/CustomerManagement');
     } catch (error) {
@@ -100,7 +101,7 @@ const EditCustomer = () => {
               Edit Customer
             </motion.h2>
             <motion.button
-              onClick={() => navigate('/CustomerManagement')}
+              onClick={() => navigate('/dashboard')}
               className="text-gray-500 hover:text-gray-700 transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
