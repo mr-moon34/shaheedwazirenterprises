@@ -104,12 +104,7 @@ export const updateCustomer = async (req, res) => {
 
         
         // Validate the ID
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).json({ 
-                success: false, 
-                message: 'Invalid customer ID' 
-            });
-        }
+       
 
         // Extract updatable fields from request body
         const { name, email, phone, address, reference } = req.body;

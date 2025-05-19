@@ -22,7 +22,7 @@ const EditCustomer = () => {
   useEffect(() => {
     const fetchCustomer = async () => {
       try {
-        const response = await axios.get(`https://shaheed-wazir-enterprises.onrender.com/api/customers/getcustomer/${id}`);
+        const response = await axios.get(`http://localhost:5000/api/customers/getcustomer/${id}`);
         console.log(response)
         setCustomer({
           name: response.data.user.name,
