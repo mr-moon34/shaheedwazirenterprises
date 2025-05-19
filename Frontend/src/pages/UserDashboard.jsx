@@ -48,7 +48,7 @@ const UserDashboard = () => {
     const fetchUsers = async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get('https://shaheed-wazir-enterprises.onrender.com/api/customers/')
+        const res = await axios.get('https://shaheedwazirenterprises.onrender.com/api/customers/')
         setUsers(res.data.customers);
         setFilteredUsers(res.data.customers);
       } catch (error) {
@@ -64,7 +64,7 @@ const UserDashboard = () => {
     const fetchUsers = async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get('https://shaheed-wazir-enterprises.onrender.com/api/transactions/gettotal')
+        const res = await axios.get('https://shaheedwazirenterprises.onrender.com/api/transactions/gettotal')
         console.log(res)
         settotalCredits(res.data.totalCredit);
         settotalDebit(res.data.totalDebit)
@@ -105,7 +105,7 @@ const UserDashboard = () => {
 
   const handleDeleteClick = async (userId) => {
     try {
-      const res = await axios.delete(`https://shaheed-wazir-enterprises.onrender.com/api/customers/deleteCustomerController/${userId}`);
+      const res = await axios.delete(`https://shaheedwazirenterprises.onrender.com/api/customers/deleteCustomerController/${userId}`);
 
       
       if(res.data.success){

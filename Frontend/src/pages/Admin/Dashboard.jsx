@@ -59,7 +59,7 @@ const Dashboard = () => {
 
   const handleDeleteClick = async (userId) => {
     try {
-     const res= await axios.delete(`https://shaheed-wazir-enterprises.onrender.com/api/users/${userId}`);
+     const res= await axios.delete(`https://shaheedwazirenterprises.onrender.com/api/users/${userId}`);
 
       
       if(res.data.success){

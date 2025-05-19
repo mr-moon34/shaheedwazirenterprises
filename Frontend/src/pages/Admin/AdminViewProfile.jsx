@@ -28,7 +28,7 @@ const AdminViewProfile = () => {
     // Fetch admin data
     const fetchAdminData = async () => {
       try {
-        const response = await axios.get(`https://shaheed-wazir-enterprises.onrender.com/api/auth/getprofile/${user._id}`);
+        const response = await axios.get(`https://shaheedwazirenterprises.onrender.com/api/auth/getprofile/${user._id}`);
         setAdminData(response.data);
       
         setLoading(false);

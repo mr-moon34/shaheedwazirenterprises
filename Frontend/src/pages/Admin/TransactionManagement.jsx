@@ -20,7 +20,7 @@ const TransactionManagement = () => {
     const fetchTransactions = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('https://shaheed-wazir-enterprises.onrender.com/api/transactions/getTransactions');
+        const response = await axios.get('https://shaheedwazirenterprises.onrender.com/api/transactions/getTransactions');
         // console.log(response.data)
         setTransactions(response.data);
         setFilteredTransactions(response.data);
@@ -62,7 +62,7 @@ const TransactionManagement = () => {
     
    
       try {
-        await axios.delete(`https://shaheed-wazir-enterprises.onrender.com/api/transactions/deleteTransaction/${_id}`);
+        await axios.delete(`https://shaheedwazirenterprises.onrender.com/api/transactions/deleteTransaction/${_id}`);
         setTransactions(transactions.filter(t => t._id !== _id));
         toast.success('Transaction deleted successfully');
       } catch (error) {

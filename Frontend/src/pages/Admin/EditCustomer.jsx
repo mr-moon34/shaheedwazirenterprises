@@ -57,7 +57,7 @@ const EditCustomer = () => {
     setIsUpdating(true);
     
     try {
-      const res=await axios.put(`https://shaheed-wazir-enterprises.onrender.com/api/customers/updateCust/${id}`, customer);
+      const res=await axios.put(`https://shaheedwazirenterprises.onrender.com/api/customers/updateCust/${id}`, customer);
     //   console.log(res)
       toast.success('Customer updated successfully!');
       navigate('/CustomerManagement');

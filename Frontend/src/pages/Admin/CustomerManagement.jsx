@@ -33,7 +33,7 @@ const CustomerManagement = () => {
 
         const fetch = async () => {
             try {
-                const response = await axios.get('https://shaheed-wazir-enterprises.onrender.com/api/customers/')
+                const response = await axios.get('https://shaheedwazirenterprises.onrender.com/api/customers/')
                 setCustomers(response.data.customers)
             } catch (error) {
                 toast.error(error.message || 'Error adding customer');
@@ -65,7 +65,7 @@ const CustomerManagement = () => {
         // console.log(customerId)
 
         try {
-            const res = await axios.delete(`https://shaheed-wazir-enterprises.onrender.com/api/customers/deleteCustomerController/${customerId}`);
+            const res = await axios.delete(`https://shaheedwazirenterprises.onrender.com/api/customers/deleteCustomerController/${customerId}`);
             if (res.data.success) {
                 setCustomers(customers.filter(user => user._id !== customerId));
                 toast.success('Customer deleted  successfully');

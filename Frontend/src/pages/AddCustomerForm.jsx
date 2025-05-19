@@ -30,7 +30,7 @@ const AddCustomerForm = () => {
   
     try {
       const response = await axios.post(
-        'https://shaheed-wazir-enterprises.onrender.com/api/customers/addCustomer',
+        'https://shaheedwazirenterprises.onrender.com/api/customers/addCustomer',
         formData
       );
   

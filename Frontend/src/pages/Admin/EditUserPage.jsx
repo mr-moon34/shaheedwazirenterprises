@@ -20,7 +20,7 @@ const EditUserPage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`https://shaheed-wazir-enterprises.onrender.com/api/auth/getprofile/${id}`);
+        const response = await axios.get(`https://shaheedwazirenterprises.onrender.com/api/auth/getprofile/${id}`);
         console.log(response)
         setUser({
           username: response.data.username,
@@ -50,7 +50,7 @@ const EditUserPage = () => {
     setIsUpdating(true);
     
     try {
-      const response = await axios.put(`https://shaheed-wazir-enterprises.onrender.com/api/users/updateUser/${id}`, user);
+      const response = await axios.put(`https://shaheedwazirenterprises.onrender.com/api/users/updateUser/${id}`, user);
       toast.success('User updated successfully!');
       navigate('/Userdashboard');
     } catch (error) {

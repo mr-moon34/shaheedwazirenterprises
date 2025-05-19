@@ -32,7 +32,7 @@ const AddTransactionForm = () => {
 
     const fetchCustomers = async () => {
       try {
-        const response = await axios.get('https://shaheed-wazir-enterprises.onrender.com/api/customers/')
+        const response = await axios.get('https://shaheedwazirenterprises.onrender.com/api/customers/')
         setCustomers(response.data.customers);
         setFilteredCustomers(response.data.customers);
       } catch (error) {
@@ -183,7 +183,7 @@ const AddTransactionForm = () => {
 
 
 
-        const response = await axios.post('https://shaheed-wazir-enterprises.onrender.com/api/transactions/addTransaction',formPayload)
+        const response = await axios.post('https://shaheedwazirenterprises.onrender.com/api/transactions/addTransaction',formPayload)
         if(response.data.success){
       toast.success('Transaction added successfully!');
       navigate('/TransactionManagement');}

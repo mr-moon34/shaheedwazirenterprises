@@ -17,7 +17,7 @@ const TransactionTrash = () => {
     const fetchDeletedTransactions = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('https://shaheed-wazir-enterprises.onrender.com/api/transactions/trash');
+        const response = await axios.get('https://shaheedwazirenterprises.onrender.com/api/transactions/trash');
         setDeletedTransactions(response.data);
         setFilteredTransactions(response.data);
       } catch (error) {
@@ -57,7 +57,7 @@ const TransactionTrash = () => {
   const handleRestore = async (transactionId) => {
     // console.log(transactionId)
     try {
-      await axios.put(`https://shaheed-wazir-enterprises.onrender.com/api/transactions/restore/${transactionId}`);
+      await axios.put(`https://shaheedwazirenterprises.onrender.com/api/transactions/restore/${transactionId}`);
       setDeletedTransactions(deletedTransactions.filter(t => t._id !== transactionId));
       toast.success('Transaction restored successfully');
     } catch (error) {
@@ -69,7 +69,7 @@ const TransactionTrash = () => {
     
   
       try {
-        await axios.delete(`https://shaheed-wazir-enterprises.onrender.com/api/transactions/deletepermanent/${transactionId}`);
+        await axios.delete(`https://shaheedwazirenterprises.onrender.com/api/transactions/deletepermanent/${transactionId}`);
 
         setDeletedTransactions(deletedTransactions.filter(t => t._id !== transactionId));
         toast.success('Transaction permanently deleted');

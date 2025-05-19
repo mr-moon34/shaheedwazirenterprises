@@ -28,7 +28,7 @@ const AddUserForm = () => {
     setIsSubmitting(true);
   
     try {
-      const res = await axios.post('https://shaheed-wazir-enterprises.onrender.com/api/auth/createAdmin', formData);
+      const res = await axios.post('https://shaheedwazirenterprises.onrender.com/api/auth/createAdmin', formData);
   
       if (res.data.success) {
         toast.success('User created successfully!');
